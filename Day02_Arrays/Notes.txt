@@ -1,0 +1,107 @@
+DAY 02 – ARRAYS / HASHING
+PROBLEM: Valid Anagram
+
+--------------------------------------------------
+PROBLEM STATEMENT
+--------------------------------------------------
+Given two strings s and t, determine if t is an anagram of s.
+An anagram means both strings contain the same characters
+with the same frequency, only the order may differ.
+
+Example:
+s = "anagram"
+t = "nagaram"
+Output: true
+
+--------------------------------------------------
+KEY OBSERVATION
+--------------------------------------------------
+1. If lengths are different → cannot be anagrams.
+2. Characters and their counts must match exactly.
+3. Order of characters does NOT matter.
+
+--------------------------------------------------
+APPROACH 1: HASHMAP (Dictionary<char, int>)
+--------------------------------------------------
+INTUITION:
+Count how many times each character appears in string s.
+Then reduce the count using characters from string t.
+
+STEPS:
+1. If s.Length != t.Length → return false.
+2. Create Dictionary<char, int>.
+3. Loop through string s:
+   - Increase count of each character.
+4. Loop through string t:
+   - If character not present → return false.
+   - Decrease count.
+   - If count becomes negative → return false.
+5. If all checks pass → strings are anagrams.
+
+WHY THIS WORKS:
+- Every character added from s must be removed by t.
+- Any extra or missing character is detected immediately.
+
+TIME COMPLEXITY:
+O(n)
+
+SPACE COMPLEXITY:
+O(n) (in worst case all characters are unique)
+
+--------------------------------------------------
+APPROACH 2: FREQUENCY ARRAY (OPTIMIZED)
+--------------------------------------------------
+INTUITION:
+Since input contains only lowercase English letters,
+we can use a fixed-size array of 26.
+
+STEPS:
+1. If s.Length != t.Length → return false.
+2. Create int array of size 26.
+3. Loop through strings:
+   - Increment count for s[i]
+   - Decrement count for t[i]
+4. Check array:
+   - If any value ≠ 0 → not an anagram.
+5. Else → valid anagram.
+
+WHY THIS IS OPTIMIZED:
+- No HashMap overhead
+- Constant space usage
+- Faster in interviews
+
+TIME COMPLEXITY:
+O(n)
+
+SPACE COMPLEXITY:
+O(1) (constant size array)
+
+--------------------------------------------------
+COMPARISON
+--------------------------------------------------
+HashMap Approach:
+✔ Works for any character set
+✔ Easier to understand
+❌ Uses extra space
+
+Array Approach:
+✔ Best performance
+✔ Constant space
+❌ Only works for limited alphabets
+
+--------------------------------------------------
+INTERVIEW TIPS
+--------------------------------------------------
+- Always start with length check.
+- Mention brute force idea (sorting) but avoid using it.
+- Explain why array approach is better for lowercase letters.
+- Highlight early exit conditions.
+
+--------------------------------------------------
+FINAL NOTE
+--------------------------------------------------
+This problem teaches:
+✔ Hashing basics
+✔ Frequency counting
+✔ Space vs time optimization
+✔ Interview communication skills

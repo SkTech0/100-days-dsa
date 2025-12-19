@@ -1,0 +1,184 @@
+DAY 03 – TWO POINTERS PATTERN
+--------------------------------------------------
+
+WHAT IS TWO POINTERS?
+Two Pointers is a technique where we use two indices
+to traverse an array or string instead of nested loops.
+
+Goal:
+Reduce time complexity from O(n²) → O(n)
+
+--------------------------------------------------
+WHEN TO USE TWO POINTERS?
+--------------------------------------------------
+✔ Array or String problems
+✔ Sorted arrays
+✔ Pair / reverse / comparison problems
+✔ When search space can be reduced step-by-step
+
+--------------------------------------------------
+CORE IDEA
+--------------------------------------------------
+Each pointer movement must eliminate impossible cases
+without missing the correct answer.
+
+--------------------------------------------------
+PROBLEM 1: Reverse String
+--------------------------------------------------
+INTUITION:
+To reverse a string, swap first and last characters,
+then move inward.
+
+POINTER SETUP:
+left = 0
+right = n - 1
+
+MOVEMENT:
+- Swap s[left] and s[right]
+- left++
+- right--
+
+STOP WHEN:
+left >= right
+
+TIME COMPLEXITY:
+O(n)
+
+SPACE COMPLEXITY:
+O(1)
+
+INTERVIEW TIP:
+Use in-place reversal to save memory.
+
+--------------------------------------------------
+PROBLEM 2: Valid Palindrome
+--------------------------------------------------
+INTUITION:
+A palindrome reads the same forward and backward.
+Ignore non-alphanumeric characters.
+
+POINTER SETUP:
+left = 0
+right = n - 1
+
+MOVEMENT:
+- Skip invalid characters
+- Compare lowercase characters
+- Move inward
+
+WHY SKIPPING IS IMPORTANT:
+Spaces and symbols should not affect palindrome check.
+
+TIME COMPLEXITY:
+O(n)
+
+SPACE COMPLEXITY:
+O(1)
+
+INTERVIEW TIP:
+Mention character filtering and case handling clearly.
+
+--------------------------------------------------
+PROBLEM 3: Two Sum II (Sorted Array)
+--------------------------------------------------
+INTUITION:
+Sorted array allows directional pointer movement.
+
+POINTER SETUP:
+left = 0
+right = n - 1
+
+LOGIC:
+sum = nums[left] + nums[right]
+
+- If sum == target → answer found
+- If sum > target → right--
+- If sum < target → left++
+
+WHY THIS WORKS:
+Sorted order guarantees safe elimination of elements.
+
+TIME COMPLEXITY:
+O(n)
+
+SPACE COMPLEXITY:
+O(1)
+
+INTERVIEW TIP:
+Explain why HashMap is unnecessary here.
+
+--------------------------------------------------
+PROBLEM 4: Remove Duplicates from Sorted Array
+--------------------------------------------------
+INTUITION:
+Use one pointer to read elements,
+another to write unique elements.
+
+POINTER SETUP:
+slow = 0
+fast = 1
+
+LOGIC:
+- If nums[fast] != nums[slow]
+  → slow++
+  → nums[slow] = nums[fast]
+
+RESULT:
+Array modified in-place with unique values in front.
+
+TIME COMPLEXITY:
+O(n)
+
+SPACE COMPLEXITY:
+O(1)
+
+INTERVIEW TIP:
+Explain logical size vs actual array size.
+
+--------------------------------------------------
+PROBLEM 5: Container With Most Water
+--------------------------------------------------
+INTUITION:
+Area depends on:
+- Width (distance between pointers)
+- Height (minimum of two lines)
+
+POINTER SETUP:
+left = 0
+right = n - 1
+
+AREA FORMULA:
+area = min(height[left], height[right]) * (right - left)
+
+MOVEMENT LOGIC:
+- Move the pointer with smaller height
+- Because larger height may give better area
+
+WHY THIS WORKS:
+Moving the larger height never increases area.
+
+TIME COMPLEXITY:
+O(n)
+
+SPACE COMPLEXITY:
+O(1)
+
+INTERVIEW TIP:
+This is a greedy + two pointers problem.
+Always justify pointer movement.
+
+--------------------------------------------------
+COMMON TWO POINTER PATTERNS
+--------------------------------------------------
+1. left++, right--
+2. slow & fast pointer
+3. Move based on condition
+4. Skip invalid characters
+
+--------------------------------------------------
+FINAL TAKEAWAYS
+--------------------------------------------------
+✔ Two pointers reduce nested loops
+✔ Sorted input = predictable movement
+✔ Each move must eliminate bad cases
+✔ Always explain pointer movement reasoning

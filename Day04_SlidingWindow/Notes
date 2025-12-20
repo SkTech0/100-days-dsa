@@ -1,0 +1,151 @@
+# Sliding Window Pattern – Complete Notes
+
+---
+
+## What is Sliding Window?
+
+Sliding Window ek algorithmic technique hai jisme hum **array ya string ke contiguous (continuous) part** par kaam karte hain.
+
+Instead of har subarray/substring ko alag-alag calculate karna (O(n²)), hum ek **window** banate hain jo gradually **slide** karti hai → overall complexity **O(n)** ho jaati hai.
+
+---
+
+## When to Use Sliding Window?
+
+Use this pattern when:
+
+* Question me **subarray / substring / continuous** likha ho
+* Maximum / Minimum / Longest / Shortest nikalna ho
+* Range dynamically change ho rahi ho
+
+ Non-contiguous problems me Sliding Window use nahi hota.
+
+---
+
+## Types of Sliding Window
+
+###  Fixed Size Sliding Window
+
+* Window ka size pehle se fixed hota hai (k)
+* Example: "Maximum sum subarray of size k"
+
+###  Variable Size Sliding Window
+
+* Window ka size condition par depend karta hai
+* Example: "Longest substring without repeating characters"
+
+---
+
+## Core Intuition (Golden Rule)
+
+```
+Right pointer → window expand karta hai
+Left pointer  → window shrink karta hai (jab condition break ho)
+```
+
+---
+
+## Fixed Size Sliding Window – Template (C#)
+
+```csharp
+int windowSum = 0;
+int maxSum = int.MinValue;
+int k = 3;
+
+for (int i = 0; i < nums.Length; i++)
+{
+    windowSum += nums[i];
+
+    if (i >= k - 1)
+    {
+        maxSum = Math.Max(maxSum, windowSum);
+        windowSum -= nums[i - (k - 1)];
+    }
+}
+```
+
+---
+
+## Variable Size Sliding Window – Template (C#)
+
+```csharp
+int left = 0;
+Dictionary<char, int> map = new Dictionary<char, int>();
+
+for (int right = 0; right < s.Length; right++)
+{
+    // expand window
+
+    while (condition breaks)
+    {
+        // shrink window
+        left++;
+    }
+
+    // update answer
+}
+```
+
+---
+
+## Common Mistakes 
+
+1. Left pointer move karna bhool jana
+2. Window shrink galat time pe karna
+3. Condition galat likhna (<=, >= confusion)
+4. HashMap update ka order galat hona
+
+---
+
+## Pattern Recognition Tip (Interview Ready)
+
+Agar question bole:
+
+> "Find longest / shortest / maximum / minimum subarray or substring"
+
+Turant socho → **Sliding Window**
+
+---
+
+# 20 Important Sliding Window Problems (GitHub Ready List)
+
+## Beginner Level
+
+1. Maximum Subarray (Kadane’s Algorithm)
+2. Maximum Average Subarray I
+3. Contains Duplicate II
+4. Defuse the Bomb
+5. Diet Plan Performance
+
+---
+
+## Intermediate Level
+
+6. Longest Substring Without Repeating Characters
+7. Longest Repeating Character Replacement
+8. Minimum Size Subarray Sum
+9. Permutation in String
+10. Subarray Product Less Than K
+11. Max Consecutive Ones III
+12. Find All Anagrams in a String
+
+---
+
+## Advanced Level
+
+13. Minimum Window Substring
+14. Sliding Window Maximum
+15. Subarrays with K Different Integers
+16. Count Number of Nice Subarrays
+17. Binary Subarrays With Sum
+18. Longest Substring with At Most K Distinct Characters
+19. Maximum Points You Can Obtain from Cards
+20. Minimum Swaps to Group All 1s Together
+
+---
+
+
+## One-Line Summary
+
+> Sliding Window optimizes contiguous range problems by reusing computation through window expansion and contraction.
+

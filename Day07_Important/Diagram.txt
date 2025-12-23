@@ -1,0 +1,24 @@
+START
+ |
+ |-- Is it Subarray / Substring?
+ |        |
+ |        |-- Non-negative numbers?
+ |        |        |-- YES → Sliding Window
+ |        |        |-- NO  → Prefix Sum
+ |
+ |-- Is array sorted?
+ |        |-- YES → Two Pointers
+ |        |-- NO  → Hashing
+ |
+ |-- Cycle / Linked List / Repeated State?
+ |        |-- YES → Fast & Slow Pointers
+ |
+ |-- Shortest / Minimum steps?
+ |        |-- YES → BFS
+ |
+ |-- All possible combinations?
+ |        |-- YES → Backtracking
+ |
+ |-- Overlapping subproblems?
+ |        |-- YES → DP
+ |        |-- NO  → Greedy

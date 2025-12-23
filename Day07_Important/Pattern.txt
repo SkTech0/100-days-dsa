@@ -1,0 +1,65 @@
+30-SECOND PATTERN DECISION FLOWCHART (MENTAL VERSION)
+
+When you read the problem, ask in this exact order:
+
+Step 1️⃣: Is the data continuous / contiguous?
+
+Words: subarray, substring, window
+
+YES → Go to Step 2
+
+NO → Go to Step 5
+
+Step 2️⃣: Are all numbers non-negative?
+
+YES → Sliding Window
+
+NO → Prefix Sum + HashMap
+
+📌 Why: Sliding window needs monotonic behavior.
+
+Step 3️⃣: Is it asking for longest / shortest / count?
+
+Longest / shortest → Sliding Window
+
+Count of exact value → Prefix Sum
+
+Step 4️⃣: Does shrinking the window risk missing answers?
+
+YES → Prefix Sum
+
+NO → Sliding Window
+
+Step 5️⃣: Is the array sorted?
+
+YES → Two Pointers
+
+NO → Hashing
+
+Step 6️⃣: Are you asked for pairs / triplets / closeness?
+
+YES + Sorted → Two Pointers
+
+YES + Unsorted → Hashing
+
+Step 7️⃣: Is there a cycle / repetition / linked list?
+
+YES → Fast & Slow Pointers
+
+Step 8️⃣: Is it asking for shortest path / minimum steps?
+
+YES → BFS
+
+NO → DFS / Backtracking
+
+Step 9️⃣: Does the problem say “all possible”?
+
+YES → Backtracking
+
+NO → Continue
+
+Step 🔟: Does local choice affect future choices?
+
+YES → Dynamic Programming
+
+NO → Greedy
